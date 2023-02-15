@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/rank"
+        android:icon="@drawable/img_1"
+        android:title="Ranking" />
+    <item
+        android:id="@+id/test_btn"
+        android:icon="@drawable/img_2"
+        android:title="Test" />
+    <item
+        android:id="@+id/log_out"
+        android:icon="@drawable/img"
+        android:title="Log out" />
+</menu>
