@@ -27,7 +27,7 @@ class Menu : AppCompatActivity() {
     private var list = arrayListOf<User>()
     private var str_1: String = ""
 
-    @SuppressLint("MissingInflatedId", "SetTextI18n")
+    @SuppressLint("MissingInflatedId", "SetTextI18n", "ResourceType")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.menu_activity)
@@ -49,6 +49,7 @@ class Menu : AppCompatActivity() {
         } else {
             gson.fromJson(str, type)
         }
+
 
 
         create_rank()
@@ -82,11 +83,10 @@ class Menu : AppCompatActivity() {
         for (i in list.indices.reversed()) {
             Log.d("tag", list[i].log)
             var user = TextView(this)
-            user.text = "${c}.${list[i].log} : ${list[i].score}"
+            user.text = "${c++}.${list[i].log} : ${list[i].score}"
             user.setTextColor(Color.BLACK)
             user.textSize = 20f
             linear.addView(user)
-            c++
         }
     }
 

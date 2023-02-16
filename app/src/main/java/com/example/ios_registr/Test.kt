@@ -95,23 +95,8 @@ class Test : AppCompatActivity(), OnClickListener {
             edit.putString("users", s).apply()
         }
         again.setOnClickListener {
-            gameover()
-            for (i in list) {
-                i.choosen = ""
-            }
-            var a = AnimationUtils.loadAnimation(this, R.anim.anim2)
-            card.startAnimation(a)
-            card.visibility = View.INVISIBLE
-            finish.visibility = View.INVISIBLE
-            next.visibility = View.VISIBLE
-            prev.visibility = View.INVISIBLE
-            correcans.text = correcans.text.dropLast(1)
-            group.clearCheck()
-            index = 0
-            createTest(index)
-            card.isEnabled = true
-            status_1 = true
             color_btn()
+            finish()
         }
         answer1.setOnClickListener {
             var a = findViewById<RadioButton>(group.checkedRadioButtonId)
@@ -202,6 +187,7 @@ class Test : AppCompatActivity(), OnClickListener {
             if (i.choosen == i.correct) {
                 correctans++
             }
+
         }
         return correctans
     }
