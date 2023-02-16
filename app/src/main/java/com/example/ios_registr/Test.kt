@@ -91,6 +91,8 @@ class Test : AppCompatActivity(), OnClickListener {
                     i.score += finishing()
                 }
             }
+            var s = gson.toJson(list_2)
+            edit.putString("users", s).apply()
         }
         again.setOnClickListener {
             gameover()
