@@ -62,10 +62,12 @@ class Menu : AppCompatActivity() {
         test_btn.setOnClickListener {
             start_test.visibility = View.VISIBLE
             linear.visibility = View.INVISIBLE
+            scroll.visibility = View.INVISIBLE
         }
         rank.setOnClickListener {
             start_test.visibility = View.INVISIBLE
             linear.visibility = View.VISIBLE
+            scroll.visibility = View.VISIBLE
         }
         start_test.setOnClickListener {
             var intent = Intent(this, Test::class.java)
