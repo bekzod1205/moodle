@@ -42,7 +42,9 @@ class LogIn : AppCompatActivity() {
             } else {
                 val cache = getSharedPreferences("CASHE", MODE_PRIVATE)
                 var str = cache.getString("users", "")
-                list = gson.fromJson(str, type)
+                if (str != "") {
+                    list = gson.fromJson(str, type)
+                }
 
 
                 if (list.isNotEmpty()) {
@@ -50,10 +52,12 @@ class LogIn : AppCompatActivity() {
                         if (list[i].log == username.text.toString() && list[i].pass == password.text.toString()) {
                             var str = list[i].log
                             var intent = Intent(this, Menu::class.java)
-                            intent.putExtra("str",str)
-
+                            intent.putExtra("str", str)
                             startActivity(intent)
                             isok = true
+                        } else {
+                            Toast.makeText(this, "Ma'lumotlar topilmadi !!!", Toast.LENGTH_SHORT)
+                                .show()
                         }
                     }
                     if (!isok) {
