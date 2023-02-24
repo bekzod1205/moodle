@@ -7,10 +7,12 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.ScrollView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
 import com.google.android.material.navigation.NavigationBarItemView
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -20,7 +22,7 @@ class Menu : AppCompatActivity() {
     private lateinit var logout: NavigationBarItemView
     private lateinit var rank: NavigationBarItemView
     private lateinit var test_btn: NavigationBarItemView
-    private lateinit var start_test: Button
+    private lateinit var start_test: CardView
     private lateinit var person_name: TextView
     private lateinit var rankk: TextView
     private lateinit var scroll: ScrollView
