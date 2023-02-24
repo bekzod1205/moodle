@@ -22,6 +22,7 @@ class Menu : AppCompatActivity() {
     private lateinit var test_btn: NavigationBarItemView
     private lateinit var start_test: Button
     private lateinit var person_name: TextView
+    private lateinit var rankk: TextView
     private lateinit var scroll: ScrollView
     private lateinit var linear: LinearLayout
     private var list = arrayListOf<User>()
@@ -38,19 +39,7 @@ class Menu : AppCompatActivity() {
         person_name = findViewById(R.id.person_name)
         scroll = findViewById(R.id.scroll_view)
         linear = findViewById(R.id.linearr)
-
-        val cache = getSharedPreferences("CASHE", MODE_PRIVATE)
-        val edit = cache.edit()
-        val type = object : TypeToken<List<User>>() {}.type
-        val gson = Gson()
-        var str = cache.getString("users", "")
-        list = if (str == "") {
-            arrayListOf<User>()
-        } else {
-            gson.fromJson(str, type)
-        }
-
-
+        rankk = findViewById(R.id.rankk)
 
         create_rank()
         str_1 = intent.getStringExtra("str").toString()
@@ -68,6 +57,9 @@ class Menu : AppCompatActivity() {
             start_test.visibility = View.INVISIBLE
             linear.visibility = View.VISIBLE
             scroll.visibility = View.VISIBLE
+            linear.removeAllViews()
+            linear.addView(rankk)
+            create_rank()
         }
         start_test.setOnClickListener {
             var intent = Intent(this, Test::class.java)
@@ -78,6 +70,16 @@ class Menu : AppCompatActivity() {
 
     @SuppressLint("SetTextI18n", "ResourceAsColor")
     fun create_rank() {
+        val cache = getSharedPreferences("CASHE", MODE_PRIVATE)
+        val edit = cache.edit()
+        val type = object : TypeToken<List<User>>() {}.type
+        val gson = Gson()
+        var str = cache.getString("users", "")
+        list = if (str == "") {
+            arrayListOf<User>()
+        } else {
+            gson.fromJson(str, type)
+        }
         list.sortBy {
             it.score
         }

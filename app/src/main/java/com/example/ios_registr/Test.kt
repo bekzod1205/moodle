@@ -93,6 +93,7 @@ class Test : AppCompatActivity(), OnClickListener {
             }
             var s = gson.toJson(list_2)
             edit.putString("users", s).apply()
+
         }
         again.setOnClickListener {
             color_btn()
